@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="mn">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>10-р ангийн Математикийн Асуултууд</title>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600&display=swap" rel="stylesheet">
+  <style>
+    * { box-sizing: border-box; font-family: 'Montserrat', sans-serif; }
+    body { margin: 0; background: linear-gradient(to right, #f0f4f4, #e0f7fa); padding: 20px; }
+    header {
+      background-color: #00695c;
+      color: white;
+      padding: 25px;
+      text-align: center;
+      border-radius: 12px;
+      margin-bottom: 30px;
+      box-shadow: 0 4px 8px rgba(0,0,0,0.15);
+    }
+    header h1 {
+      margin: 0;
+      font-size: 28px;
+    }
+    header a {
+      display: inline-block;
+      margin-top: 10px;
+      color: #b2dfdb;
+      background: #004d40;
+      padding: 8px 16px;
+      border-radius: 6px;
+      text-decoration: none;
+      transition: background 0.3s;
+    }
+    header a:hover {
+      background: #002921;
+    }
+    .question {
+      background-color: #ffffff;
+      margin: 15px 0;
+      padding: 20px;
+      border-radius: 12px;
+      box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+      transition: transform 0.2s;
+    }
+    .question:hover {
+      transform: scale(1.01);
+    }
+    .question h3 { margin: 0 0 10px 0; font-weight: 600; }
+    .question input[type="text"] {
+      width: 100%;
+      padding: 10px;
+      border-radius: 6px;
+      border: 1px solid #ccc;
+      font-size: 16px;
+    }
+    .result {
+      margin-top: 10px;
+      font-weight: bold;
+      font-size: 14px;
+    }
+    .correct { color: green; }
+    .incorrect { color: red; }
+    button {
+      display: block;
+      margin: 30px auto 0;
+      padding: 12px 28px;
+      font-size: 16px;
+      border: none;
+      background-color: #00796b;
+      color: white;
+      border-radius: 8px;
+      cursor: pointer;
+      transition: background-color 0.3s;
+    }
+    button:hover { background-color: #004d40; }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>📘 10-р ангийн Математикийн Асуултууд</h1>
+    <a href="haruilt.html">Хариултуудыг харах</a>
+  </header>
+
+  <form id="quiz-form">
+    <div class="question"><h3>1. \( x^2 - 5x + 6 = 0 \)</h3><input type="text" name="q1"><div class="result" id="r1"></div></div>
+    <div class="question"><h3>2. \( \sqrt{49} = ? \)</h3><input type="text" name="q2"><div class="result" id="r2"></div></div>
+    <div class="question"><h3>3. \( 5x = 20 \)</h3><input type="text" name="q3"><div class="result" id="r3"></div></div>
+    <div class="question"><h3>4. \( 2x + 3 = 9 \)</h3><input type="text" name="q4"><div class="result" id="r4"></div></div>
+    <div class="question"><h3>5. \( \frac{1}{2} + \frac{3}{4} = ? \)</h3><input type="text" name="q5"><div class="result" id="r5"></div></div>
+    <div class="question"><h3>6. \( \log_{10}1000 = ? \)</h3><input type="text" name="q6"><div class="result" id="r6"></div></div>
+    <div class="question"><h3>7. \( \sin(30^\circ) = ? \)</h3><input type="text" name="q7"><div class="result" id="r7"></div></div>
+    <div class="question"><h3>8. \( \cos(60^\circ) = ? \)</h3><input type="text" name="q8"><div class="result" id="r8"></div></div>
+    <div class="question"><h3>9. \( a^2 + b^2 = c^2 \), \( a=3 \), \( b=4 \) үед \( c \)-г ол.</h3><input type="text" name="q9"><div class="result" id="r9"></div></div>
+    <div class="question"><h3>10. \( (x+3)^2 = ? \)</h3><input type="text" name="q10"><div class="result" id="r10"></div></div>
+    <div class="question"><h3>11. \( \frac{d}{dx}(x^2) = ? \)</h3><input type="text" name="q11"><div class="result" id="r11"></div></div>
+    <div class="question"><h3>12. \( \int x \, dx = ? \)</h3><input type="text" name="q12"><div class="result" id="r12"></div></div>
+    <div class="question"><h3>13. \( x^2 + y^2 = r^2 \) нь ямар муруйг илэрхийлдэг вэ?</h3><input type="text" name="q13"><div class="result" id="r13"></div></div>
+    <div class="question"><h3>14. \( 3^2 + 4^2 = ? \)</h3><input type="text" name="q14"><div class="result" id="r14"></div></div>
+    <div class="question"><h3>15. \( 7x - 14 = 0 \)</h3><input type="text" name="q15"><div class="result" id="r15"></div></div>
+    <div class="question"><h3>16. \( \frac{2}{3} + \frac{4}{5} = ? \)</h3><input type="text" name="q16"><div class="result" id="r16"></div></div>
+    <div class="question"><h3>17. \( x^3 = 27 \) үед \( x \) хэд вэ?</h3><input type="text" name="q17"><div class="result" id="r17"></div></div>
+    <div class="question"><h3>18. \( | -7 | = ? \)</h3><input type="text" name="q18"><div class="result" id="r18"></div></div>
+    <div class="question"><h3>19. \( \frac{dy}{dx} = 0 \) гэдэг нь юу гэсэн үг вэ?</h3><input type="text" name="q19"><div class="result" id="r19"></div></div>
+    <div class="question"><h3>20. \( \frac{1}{x} + \frac{1}{y} = \frac{1}{z} \) тэгшитгэлийг \( z \)-ийн хувьд илэрхийл.</h3><input type="text" name="q20"><div class="result" id="r20"></div></div>
+
+    <button type="submit">Илгээх</button>
+  </form>
+
+  <script>
+    const correctAnswers = {
+      q1: "x = 2, x = 3",
+      q2: "7",
+      q3: "x = 4",
+      q4: "x = 3",
+      q5: "5/4",
+      q6: "3",
+      q7: "0.5",
+      q8: "0.5",
+      q9: "c = 5",
+      q10: "x^2 + 6x + 9",
+      q11: "2x",
+      q12: "x^2/2 + C",
+      q13: "Тойрог",
+      q14: "25",
+      q15: "x = 2",
+      q16: "22/15",
+      q17: "x = 3",
+      q18: "7",
+      q19: "y тогтмол функц",
+      q20: "z = xy/(x + y)"
+    };
+
+    document.getElementById("quiz-form").addEventListener("submit", function(e) {
+      e.preventDefault();
+
+      for (let i = 1; i <= 20; i++) {
+        const input = document.querySelector(`input[name="q${i}"]`);
+        const userAnswer = input.value.trim().toLowerCase().replace(/\s+/g, '');
+        const correct = correctAnswers[`q${i}`].toLowerCase().replace(/\s+/g, '');
+        const resultDiv = document.getElementById(`r${i}`);
+
+        if (userAnswer === correct) {
+          resultDiv.textContent = "Зөв!";
+          resultDiv.className = "result correct";
+        } else {
+          resultDiv.textContent = "Буруу!";
+          resultDiv.className = "result incorrect";
+        }
+      }
+    });
+  </script>
+
+  <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+  <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+</body>
+</html>
